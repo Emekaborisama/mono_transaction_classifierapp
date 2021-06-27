@@ -174,7 +174,7 @@ if col1.button("Test with Mono data"):
     st.subheader("chart")
     catcount = df.groupby('labels').count()
     plt.bar(catcount.index.values, catcount['narration'])
-    plt.xlabel('Categories")
+    plt.xlabel('Categories')
     plt.ylabel('Number of transactions')
     st.pyplot()
     st.write(df)
