@@ -1,8 +1,8 @@
-name: mono_trnapi
+name: monotransapi
 services:
-  mono_trnapi:
+  monotransapi:
     public: true
-    image: emekaboris/mono_trnapione:latest
+    image: emekaboris/monotransapione:latest
     build: .
     replicas: 1
     ports:
