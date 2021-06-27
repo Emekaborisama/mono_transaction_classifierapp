@@ -1,0 +1,12 @@
+name: mono_trnapi
+services:
+  mono_trnapi:
+    public: true
+    image: emekaboris/mono_trnapione:latest
+    build: .
+    replicas: 1
+    ports:
+      - 8080
+    resources:
+      cpu: 2000m
+      memory: 5Gi
