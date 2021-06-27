@@ -168,8 +168,7 @@ if col1.button("Test with Mono data"):
         st.balloons()
         st.success('Done!')
     st.title("chart of trasaction")
-    st.bar_chart(df['category'])
-    st.area_chart(df['category'])
+    st.line_chart(df['category'])
     st.write(df)
     df.to_csv("data.csv")
 
