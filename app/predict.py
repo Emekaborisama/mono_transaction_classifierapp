@@ -28,13 +28,8 @@ def remove_pattern(input_txt, pattern):
 
 def load_predict(input_text):
     text = np.vectorize(remove_pattern)(input_text, "@[\w]*")
-    #tfid.fit(text)
-    print("pass1")
     pred_text = cv.transform(text)
-    print("pass2")
     return (loaded_model.predict(pred_text))
-    print("pass3")
-    
     
 
 
