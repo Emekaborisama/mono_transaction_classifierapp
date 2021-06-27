@@ -4,6 +4,10 @@ import numpy as np
 import pandas as pd
 # embed streamlit docs in a streamlit app
 #components.iframe("https://docs.streamlit.io/en/latest")
+from matplotlib.pyplot import figure
+import matplotlib.pyplot as plt
+st.set_option('deprecation.showPyplotGlobalUse', False)
+figure(figsize=(15, 6), dpi=80)
 
 
 
@@ -141,7 +145,7 @@ def convert_dataframe(result):
     date_ = pd.DataFrame(date,columns=['date'])
     type_s = pd.DataFrame(type_,columns=['type_'])
     narrations = pd.DataFrame(narration,columns=['narration'])
-    category_ = pd.DataFrame(category,columns=['category'])
+    category_ = pd.DataFrame(category,columns=['labels'])
     frame = [date_, type_s, narrations, category_]
     df = pd.concat(frame, axis = 1)
     #cat = pd.DataFrame(l,columns=[['date', 'type_', 'narration']])
@@ -168,7 +172,11 @@ if col1.button("Test with Mono data"):
         st.balloons()
         st.success('Done!')
     st.title("chart of trasaction")
-    st.line_chart(df['category'])
+    catcount = df.groupby('labels').count()
+    plt.bar(catcount.index.values, catcount['narration'])
+    plt.xlabel('Category')
+    plt.ylabel('Number of transactions')
+    st.pyplot()
     st.write(df)
     df.to_csv("data.csv")
 
@@ -177,6 +185,8 @@ if col2.button("Test with with your input data"):
     inputdata = st.text_input("Transaction description")
     if st.button("submit"):
         st.markdown(prediction(inputdata))
+
+
 
 
 
