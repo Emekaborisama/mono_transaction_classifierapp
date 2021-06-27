@@ -171,10 +171,10 @@ if col1.button("Test with Mono data"):
         df = convert_dataframe(result = esults)
         st.balloons()
         st.success('Done!')
-    st.title("chart of trasaction")
+    st.subheader("chart")
     catcount = df.groupby('labels').count()
     plt.bar(catcount.index.values, catcount['narration'])
-    plt.xlabel('Category')
+    plt.xlabel('Categories")
     plt.ylabel('Number of transactions')
     st.pyplot()
     st.write(df)
@@ -197,7 +197,7 @@ st.markdown("So far we have been able to build a transaction classifer with xgbo
 
 
 
-st.markdown("Further work will be data anotation, to improve the model performance, Build another model using Transformer technique, and A/B testing")
+st.markdown("Further work will be data annotation, to improve the model performance, Build another model using Transformer technique, and A/B testing")
 
 
 
