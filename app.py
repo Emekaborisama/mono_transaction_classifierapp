@@ -105,7 +105,7 @@ def mono_auth(codenum):
   })
   headers = {
       'Content-Type': 'application/json',
-      'mono-sec-key': 'test_sk_GG76pmCI8SQtDNSPl03S'
+      'mono-sec-key': 'live_sk_D1RvtV0vLHYDRxWb2QGt'
   }
   response = requests.request("POST", url, headers=headers, data=payload)
   id = response.json()
