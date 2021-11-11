@@ -65,7 +65,7 @@ components.html(
   
   var connect;
   var config = {
-    key: "test_pk_n5y3gX6wbeYvyCqdSaJR",
+    key: "live_pk_jqs1gEuXLCrRCZLA9HjH",
     onSuccess: function (response) {
       copyToClipboard(response.code);
       console.log(JSON.stringify(response));
@@ -116,7 +116,7 @@ def get_trans(id):
   querystring = {"paginate":"true"}
   payload={}
   headers = {
-    'mono-sec-key': 'test_sk_GG76pmCI8SQtDNSPl03S'
+    'mono-sec-key': 'live_sk_D1RvtV0vLHYDRxWb2QGt'
   }
   response = requests.request("GET", url, headers=headers, data=payload, params=querystring)
   result = response.json()
