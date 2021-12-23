@@ -122,7 +122,6 @@ def get_trans(id):
   result = response.json()
   return result
 
-
 def prediction(narration):
     url = "https://monotransapi-emekaborisama.cloud.okteto.net/mono_transapi"
     payload={'text': narration}
@@ -152,7 +151,12 @@ def convert_dataframe(result):
     return df
 
 st.write('------------------------------------------------------------------------')
+st.write("Dataset used for this model")
+st.code("https://github.com/Emekaborisama/mono_transaction_classifierapp/tree/master/app/data")
 
+st.markdown("Notebook and API code can be found in the github link below")
+
+st.code("https://github.com/Emekaborisama/mono_transaction_classifierapp/")
 
 st.subheader("Test Transaction classifier model")
 coden = st.text_input("paste the code here")
@@ -184,5 +188,25 @@ if col2.button("Test with with your input data"):
 
 
 
+
+st.write('------------------------------------------------------------------------')
+st.subheader("Conclusion and further work")
+
+st.markdown("So far we have been able to build a transaction classifer with xgboost and we achieved 92% " "accuracy on the test data with a balanced trade off between variance and bias")
+
+
+
+st.markdown("Further work will be data annotation, to improve the model performance, Build another model using Transformer technique, and A/B testing")
+
+
+
+st.write('--------------------------------------------------------------------------')
+primaryColor = st.get_option("theme.primaryColor")
+s = f"""
+<style>
+div.stButton > button:first-child {{ border: 5px solid {primaryColor}; border-radius:20px 20px 20px 20px; background-color:#000; color:#fff;}}
+<style>
+"""
+st.markdown(s, unsafe_allow_html=True)
 
 
