@@ -43,7 +43,6 @@ components.html(
     <style>
         .p-5 {
             padding: 5em;
-
         }
     </style>
     <script type="application/javascript" src="https://connect.withmono.com/connect.js"></script>
@@ -65,7 +64,7 @@ components.html(
   
   var connect;
   var config = {
-    key: "live_pk_pN9COc5w4aZQDlLxcZ2F",
+    key: "test_pk_n5y3gX6wbeYvyCqdSaJR",
     onSuccess: function (response) {
       copyToClipboard(response.code);
       console.log(JSON.stringify(response));
@@ -105,7 +104,7 @@ def mono_auth(codenum):
   })
   headers = {
       'Content-Type': 'application/json',
-      'mono-sec-key': 'live_sk_Kpdkqm9TsRlt2VoPcV6N'
+      'mono-sec-key': 'live_sk_D1RvtV0vLHYDRxWb2QGt'
   }
   response = requests.request("POST", url, headers=headers, data=payload)
   id = response.json()
@@ -116,11 +115,12 @@ def get_trans(id):
   querystring = {"paginate":"true"}
   payload={}
   headers = {
-    'mono-sec-key': 'live_sk_Kpdkqm9TsRlt2VoPcV6N'
+    'mono-sec-key': 'test_sk_GG76pmCI8SQtDNSPl03S'
   }
   response = requests.request("GET", url, headers=headers, data=payload, params=querystring)
   result = response.json()
   return result
+
 
 def prediction(narration):
     url = "https://monotransapi-emekaborisama.cloud.okteto.net/mono_transapi"
@@ -208,5 +208,3 @@ div.stButton > button:first-child {{ border: 5px solid {primaryColor}; border-ra
 <style>
 """
 st.markdown(s, unsafe_allow_html=True)
-
-
