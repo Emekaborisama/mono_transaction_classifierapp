@@ -65,7 +65,7 @@ components.html(
   
   var connect;
   var config = {
-    key: "live_pk_jqs1gEuXLCrRCZLA9HjH",
+    key: "live_pk_pN9COc5w4aZQDlLxcZ2F",
     onSuccess: function (response) {
       copyToClipboard(response.code);
       console.log(JSON.stringify(response));
@@ -105,7 +105,7 @@ def mono_auth(codenum):
   })
   headers = {
       'Content-Type': 'application/json',
-      'mono-sec-key': 'live_sk_D1RvtV0vLHYDRxWb2QGt'
+      'mono-sec-key': 'live_sk_Kpdkqm9TsRlt2VoPcV6N'
   }
   response = requests.request("POST", url, headers=headers, data=payload)
   id = response.json()
@@ -116,7 +116,7 @@ def get_trans(id):
   querystring = {"paginate":"true"}
   payload={}
   headers = {
-    'mono-sec-key': 'live_sk_D1RvtV0vLHYDRxWb2QGt'
+    'mono-sec-key': 'live_sk_Kpdkqm9TsRlt2VoPcV6N'
   }
   response = requests.request("GET", url, headers=headers, data=payload, params=querystring)
   result = response.json()
@@ -152,12 +152,7 @@ def convert_dataframe(result):
     return df
 
 st.write('------------------------------------------------------------------------')
-st.write("Dataset used for this model")
-st.code("https://github.com/Emekaborisama/mono_transaction_classifierapp/tree/master/app/data")
 
-st.markdown("Notebook and API code can be found in the github link below")
-
-st.code("https://github.com/Emekaborisama/mono_transaction_classifierapp/")
 
 st.subheader("Test Transaction classifier model")
 coden = st.text_input("paste the code here")
@@ -190,22 +185,4 @@ if col2.button("Test with with your input data"):
 
 
 
-st.write('------------------------------------------------------------------------')
-st.subheader("Conclusion and further work")
 
-st.markdown("So far we have been able to build a transaction classifer with xgboost and we achieved 92% " "accuracy on the test data with a balanced trade off between variance and bias")
-
-
-
-st.markdown("Further work will be data annotation, to improve the model performance, Build another model using Transformer technique, and A/B testing")
-
-
-
-st.write('--------------------------------------------------------------------------')
-primaryColor = st.get_option("theme.primaryColor")
-s = f"""
-<style>
-div.stButton > button:first-child {{ border: 5px solid {primaryColor}; border-radius:20px 20px 20px 20px; background-color:#000; color:#fff;}}
-<style>
-"""
-st.markdown(s, unsafe_allow_html=True)
